@@ -1,0 +1,33 @@
+body{
+    background: linear-gradient(to left, #e5ffff, #e5e5ff, #ffe6ff, #e5ffec);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 16s ease infinite;
+    -moz-animation: AnimationName 16s ease infinite;
+    animation: AnimationName 16s ease infinite;}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+}
+
+.assorted-button {
+    background: #660066;
+    border: none;
+    height: 60px;
+    outline: none;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+
+}
