@@ -1,10 +1,12 @@
+
+/* initialises the animation and colours for background of the page*/
 body{
     background: linear-gradient(to left, #e5ffff, #e5e5ff, #ffe6ff, #e5ffec);
     background-size: 800% 800%;
     -webkit-animation: AnimationName 16s ease infinite;
     -moz-animation: AnimationName 16s ease infinite;
     animation: AnimationName 16s ease infinite;}
-
+/*these are the animation containers*/
 @-webkit-keyframes AnimationName {
     0%{background-position:11% 0%}
     50%{background-position:90% 100%}
@@ -20,14 +22,79 @@ body{
     50%{background-position:90% 100%}
     100%{background-position:11% 0%}
 }
+.desil{
+    position: absolute;
+    bottom: 1px;
+    right: 5px;
+    opacity: 0.4;
+}
 
-.assorted-button {
-    background: #660066;
-    border: none;
-    height: 60px;
-    outline: none;
-    color: white;
-    padding: 10px 20px 10px 20px;
+/* Style the navigation bar */
+.navbar {
+    width: 100%;
+    background-color: #660066;
+    overflow: auto;
+}
+/* Navbar buttons */
+.navbar a {
+    float: left;
     text-align: center;
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+}
+/* hover colour */
+.navbar a:hover {
+    background-color: #3b003b;
+}
+
+table {
+    width:352px;
+    height:352px;
+    position: absolute;
+    top:80px;
+    left:calc(50% - 352px / 2);
+}
+
+tr{
+    width: 100%;
+    height: calc(352px / 3);
+}
+td{
+    width: calc(100% / 3);
+    height: calc(352px / 3);
+    border-width: 5px;
+    border-color:#660066;
+    border-style: groove;
+}
+
+.name-input1{
+    border-color: #660066;
+    border-style: groove;
+    position:absolute;
+    width: 113px;
+    top:170px;
+    left: 197px;
 
 }
+.name-input2{
+    border-color: #660066;
+    border-style: groove;
+    position:absolute;
+    width: 113px;
+    top:170px;
+    right: 197px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
