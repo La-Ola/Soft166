@@ -41,6 +41,7 @@ body{
     text-align: center;
     padding: 15px;
     color: white;
+    text-decoration: none;
     font-size: 16px;
 }
 /* hover colour */
@@ -49,42 +50,23 @@ body{
 }
 
 table {
-    width:352px;
-    height:352px;
+    width:398px;
+    height:398px;
     position: absolute;
-    top:80px;
-    left:calc(50% - 352px / 2);
+    top:100px;
+    left:calc(50% - 398px / 2);
 }
 
 tr{
     width: 100%;
-    height: calc(352px / 3);
+    height: calc(398px / 3);
 }
 td{
     width: calc(100% / 3);
-    height: calc(352px / 3);
+    height: calc(398px / 3);
     border-width: 5px;
     border-color:#660066;
     border-style: groove;
-}
-
-.name-input1{
-    border-color: #660066;
-    border-style: groove;
-    position:absolute;
-    width: 113px;
-    top:170px;
-    left: 197px;
-
-}
-.name-input2{
-    border-color: #660066;
-    border-style: groove;
-    position:absolute;
-    width: 113px;
-    top:170px;
-    right: 197px;
-
 }
 
 
