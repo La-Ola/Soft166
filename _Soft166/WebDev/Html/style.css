@@ -30,13 +30,13 @@ body{
 }
 
 /* Style the navigation bar */
-.navbar {
+.navigationbar {
     width: 100%;
     background-color: #660066;
     overflow: auto;
 }
 /* Navbar buttons */
-.navbar a {
+.navigationbar a {
     float: left;
     text-align: center;
     padding: 15px;
@@ -45,8 +45,53 @@ body{
     font-size: 16px;
 }
 /* hover colour */
-.navbar a:hover {
+.navigationbar a:hover {
     background-color: #3b003b;
+}
+/* The dropdown container */
+.oneDropdown {
+    float: left;
+    overflow: hidden;
+}
+.oneDropdown .oneDropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+/* Add a dark purple background on hover */
+.navigationbar a:hover, .oneDropdown:hover .oneDropbtn {
+    background-color: #3b003b;
+}
+/* Dropdown content  */
+.oneDropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #660066;
+    min-width: 128px;
+    box-shadow: 0px 8px 16px 0px rgb(59, 0, 59);
+    z-index: 1;
+}
+/* content within drop down */
+.oneDropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+/* adds hover colour to drop down */
+.oneDropdown-content a:hover {
+    background-color: #3b003b;
+}
+/* Show the dropdown menu */
+.oneDropdown:hover .oneDropdown-content {
+    display: block;
 }
 
 table {
