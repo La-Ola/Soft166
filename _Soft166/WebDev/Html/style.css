@@ -24,7 +24,7 @@ body{
 }
 .desil{
     position: absolute;
-    bottom: 1px;
+    bottom: 0.01px;
     right: 5px;
     opacity: 0.4;
 }
@@ -154,7 +154,7 @@ tr{
 td{
     width: calc(100% / 3);
     height: calc(398px / 3);
-    border-width: 5px;
+    border-width: 7px;
     border-color:#660066;
     border-style: groove;
 }
