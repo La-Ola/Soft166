@@ -170,6 +170,21 @@ body{
     color: #660066;
 }
 
+/* colour dots */
+/* colour dots */
+.oneDropdown .dot {
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.twoDropdown .dot {
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
 table {
     width:398px;
     height:398px;
