@@ -40,38 +40,39 @@ $(document).ready(function() {
 				"mag":{ "light":lightMagenta, "normal":magenta, "dark":darkMagenta },
 				"li":{ "light":lightLime, "normal":lime, "dark":darkLime }};
 
-	//event listener for making the colours in the drop down connect to the js colours
+	//event listeners for making the colours in the drop down connect to the js colours
 	$(".oneDropdown a").on("click", function () {
-		var id = $(this).data("colour");
-		playerOneColour = colours[id];
-		$(".oneDropdown").attr("data-colour", id);
+		var oneID = $(this).data("colour");
+		playerOneColour = colours[oneID];
+		$(".oneDropdown").attr("data-colour", oneID);
 		playerOneColour["normal"];
 	});
-	$(".twoDropdown a").on("click", function () {
-		var id = $(this).data("colour");
-		playerTwoColour = colours[id];
-		$(".twoDropdown").attr("data-colour", id);
-		playerOneColour["normal"];
+	$(".twoDropdown a").on("click", function (){
+		var twoID = $(this).data("colour");
+		playerTwoColour = colours[twoID];
+		$(".twoDropdown").attr("data-colour", twoID);
+		playerTwoColour["normal"];
 	});
-
 
 	//player1
-	//function OneThroughThree()
-	//{
-	//	for (var i = 0; i < 3; i++)
-	//	{
-	//		var apiURL = bulbIP + apiKey + "/lights/" + bulbID[i] + "/";
-	//	}
-	//}
+	function OneThroughThree()
+	{
+		for (var lightNum = 0; lightNum < 3; lightNum++)
+		{
+			var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+			ChangeColor(apiURL, playerOneColour, highbright, delay);
+		}
+	}
 
 	//player2
-	//function FourThroughSix()
-	//{
-	//	for (var i = 3; i < 6; i++)
-	//	{
-	//		var apiURL = bulbIP + apiKey + "/lights/" + bulbID[i] + "/";
-	//	}
-	//}
+	function FourThroughSix()
+	{
+		for (var lightNum = 3; lightNum < 6; lightNum++)
+		{
+			var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+			ChangeColor(apiURL, playerTwoColour, highbright, delay);
+		}
+	}
 
 
 	// On every light bulb, cycle through every colour in the "colours" array

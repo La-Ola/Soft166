@@ -7,13 +7,17 @@ $(document).ready(function() {
        playerOneColour = $(".oneDropdown").attr("data-colour");
        playerTwoColour = $(".twoDropdown").attr("data-colour");
 
-       if (playerOneColour != "" && playerTwoColour != "") {
+       if (playerOneColour == playerTwoColour){
+           alert("choose a different colour for each player");
+       }
+       else if (playerOneColour != "" && playerTwoColour != "") {
            if ($(this).text() == "" && !$("#game-board").hasClass("disabled")) {
                $(this).text(turn);
                checkWin()
                if (turn == "x") {
                    turn = "o";
-               } else {
+               }
+                else {
                    turn = "x";
                }
 
