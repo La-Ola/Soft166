@@ -80,21 +80,25 @@
 		for (var lightNum = 0; lightNum < 3; lightNum++)
 		{
 			var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
-			ChangeColor(apiURL, playerOneColour, lowbright, delay);
+			ChangeColor(apiURL, playerTwoColour, lowbright, delay);
 		}
 	}
 
-
+	
 	// On every light bulb, cycle through every colour in the "colours" array
-	function OneThroughSix() {
+	function OneThroughSixAll() {
+		var key = Object.keys(colours)
+		var smallKeys = Object.keys(key)
 		for(var i = 0; i < bulbID.length; i++) {
 			var bulb = bulbID[i];
 			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
 			var delay = 0;
-			for(var j = 0; j < colours.length; j++) {
-				var colour = colours[j];
-				ChangeColor(apiURL, colour, highbright, delay);
-				delay += 500;
+			for(var j = 0; j < colours[keys].length; j++) {
+				for (var k = 0; k< colours[keys[j]][smallKeys[k]]; k++) {
+					var colour = colours[keys[j]][smallKeys[k]];
+					ChangeColor(apiURL, colour, highbright, delay);
+					delay += 500;
+				}
 			}
 		}
 	}
