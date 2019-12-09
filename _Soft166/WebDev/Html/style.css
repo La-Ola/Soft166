@@ -205,9 +205,18 @@ tr{
 td{
     width: calc(100% / 3);
     height: calc(398px / 3);
+    font-size:48px;
+    font-weight:bold;
+    color:#660066;
+    text-transform:uppercase;
     border-width: 7px;
     border-color:#660066;
     border-style: groove;
+    cursor:pointer;
+    text-align:center;
+}
+td:hover {
+    background:rgba(220,220,220,0.5)
 }
 
 

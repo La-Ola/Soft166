@@ -5,6 +5,8 @@
     <!-- links htm to css sheet -->
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./jquery.js"></script>
+    <script src="./gameCheck.js"></script>
 </head>
 
 <body>
@@ -17,6 +19,8 @@
 
     <!-- format for the nav bar at the top of my page. uses a class from css-->
     <div class="navigationbar">
+        <a href="./About.html"><i class="fa fa-info"></i> About</a>
+        <a href="./Light%20Key.html"><i class="fa fa-lightbulb-o"></i> Lights</a>
         <div class="oneDropdown">
             <button class="oneDropbutton">
                 <i class="fa fa-gamepad"></i>Player One
@@ -39,30 +43,29 @@
                 <a href="#">Lime<span class="dot" style="background-color: #32cd32"></span></a>
             </div>
         </div>
-        <a href="./About.html"><i class="fa fa-info"></i> About</a>
-        <a href="./Light%20Key.html"><i class="fa fa-lightbulb-o"></i> Lights</a>
+
     </div>
 
 
     <!-- where table is created-->
-    <table>
+    <table id="game-board">
         <tbody>
         <!-- table row-->
         <tr>
             <!-- table data/cell-->
-            <td id="1.0"></td>
-            <td id="1.1"></td>
-            <td id="1.2"></td>
+            <td id="td-1-0"></td>
+            <td id="td-1-1"></td>
+            <td id="td-1-2"></td>
         </tr>
         <tr>
-            <td id="2.0"></td>
-            <td id="2.1"></td>
-            <td id="2.2"></td>
+            <td id="td-2-0"></td>
+            <td id="td-2-1"></td>
+            <td id="td-2-2"></td>
         </tr>
         <tr>
-            <td id="3.0"></td>
-            <td id="3.1"></td>
-            <td id="3.2"></td>
+            <td id="td-3-0"></td>
+            <td id="td-3-1"></td>
+            <td id="td-3-2"></td>
         </tr>
         </tbody>
     </table>
