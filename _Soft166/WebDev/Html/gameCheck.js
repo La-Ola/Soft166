@@ -1,19 +1,27 @@
 $(document).ready(function() {
     var turn = "x";
+    var playerOneColour = "";
+    var playerTwoColour = "";
+
    $("td").on("click", function() {
-       //if (playerOne !="" && playerTwo != ""){}
-           if($(this).text() == "" && !$("#game-board").hasClass("disabled")) {
+       playerOneColour = $(".oneDropdown").attr("data-colour");
+       playerTwoColour = $(".twoDropdown").attr("data-colour");
+
+       if (playerOneColour != "" && playerTwoColour != "") {
+           if ($(this).text() == "" && !$("#game-board").hasClass("disabled")) {
                $(this).text(turn);
                checkWin()
-               if(turn == "x") {
+               if (turn == "x") {
                    turn = "o";
-               }
-               else {
+               } else {
                    turn = "x";
                }
 
            }
-       //else{ alert("choose a colour for each player")}
+       }
+       else{
+           alert("choose a colour for each player");
+       }
    });
    function checkWin(){
 

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="./jquery.js"></script>
+    <script src="./Lights.2.js"></script>
     <script src="./gameCheck.js"></script>
 </head>
 
@@ -21,26 +22,26 @@
     <div class="navigationbar">
         <a href="./About.html"><i class="fa fa-info"></i> About</a>
         <a href="./Light%20Key.html"><i class="fa fa-lightbulb-o"></i> Lights</a>
-        <div class="oneDropdown">
+        <div class="oneDropdown" data-colour="">
             <button class="oneDropbutton">
-                <i class="fa fa-gamepad"></i>Player One
+                <i class="fa fa-gamepad" style="padding-right: 5px"></i>Player One
             </button>
             <div class="oneDropdown-content">
-                <a href="#"><span>Blood Orange</span><span class="dot" style="background-color: #ff8c00"></span></a>
-                <a href="#"><span>Cyan</span><span class="dot" style="background-color: cyan"></span></a>
-                <a href="#"><span>Magenta</span><span class="dot" style="background-color: #ff00ff"></span></a>
-                <a href="#"><span>Lime</span><span class="dot" style="background-color: #32cd32"></span></a>
+                <a data-colour="bl-o" href="#"><span>Blood Orange</span><span class="dot" style="background-color: #ff8c00"></span></a>
+                <a data-colour="cy" href="#"><span>Cyan</span><span class="dot" style="background-color: cyan"></span></a>
+                <a data-colour="mag" href="#"><span>Magenta</span><span class="dot" style="background-color: magenta"></span></a>
+                <a data-colour="li" href="#"><span>Lime</span><span class="dot" style="background-color: lime"></span></a>
             </div>
         </div>
-        <div class="twoDropdown">
+        <div class="twoDropdown" data-colour="">
             <button class="twoDropbutton">
-                <i class="fa fa-gamepad"></i>Player Two
+                <i class="fa fa-gamepad" style="padding-right: 5px"></i>Player Two
             </button>
             <div class="twoDropdown-content">
-                <a href="#">Blood Orange<span class="dot" style="background-color: #ff8c00"></span></a>
-                <a href="#"> Cyan<span class="dot" style="background-color: cyan"></span></a>
-                <a href="#">Magenta<span class="dot" style="background-color: #ff00ff"></span></a>
-                <a href="#">Lime<span class="dot" style="background-color: #32cd32"></span></a>
+                <a data-colour="bl-o" href="#">Blood Orange<span class="dot" style="background-color: #ff8c00"></span></a>
+                <a data-colour="cy" href="#"> Cyan<span class="dot" style="background-color: cyan"></span></a>
+                <a data-colour="mag" href="#">Magenta<span class="dot" style="background-color: magenta"></span></a>
+                <a data-colour="li" href="#">Lime<span class="dot" style="background-color: lime"></span></a>
             </div>
         </div>
 
