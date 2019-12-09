@@ -1,4 +1,4 @@
-$(document).ready(function() {
+
 	// IP address of the Hue lights bridge
 	var bulbIP = "http://192.168.0.50/api/";
 	// API key
@@ -62,6 +62,11 @@ $(document).ready(function() {
 			var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
 			ChangeColor(apiURL, playerOneColour, highbright, delay);
 		}
+		for (var lightNum = 3; lightNum < 6; lightNum++)
+		{
+			var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+			ChangeColor(apiURL, playerTwoColour, lowbright, delay);
+		}
 	}
 
 	//player2
@@ -71,6 +76,11 @@ $(document).ready(function() {
 		{
 			var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
 			ChangeColor(apiURL, playerTwoColour, highbright, delay);
+		}
+		for (var lightNum = 0; lightNum < 3; lightNum++)
+		{
+			var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+			ChangeColor(apiURL, playerOneColour, lowbright, delay);
 		}
 	}
 
@@ -114,7 +124,3 @@ $(document).ready(function() {
 			}
 		});
 	}
-
-
-
-});
