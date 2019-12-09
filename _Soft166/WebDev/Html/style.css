@@ -175,15 +175,20 @@ body{
 .oneDropdown .dot {
     height: 13px;
     width: 13px;
+    right: 10px;
     border-radius: 50%;
     display: inline-block;
+    position: absolute;
 }
 .twoDropdown .dot {
     height: 13px;
     width: 13px;
+    right: 10px;
     border-radius: 50%;
     display: inline-block;
+    position: absolute;
 }
+
 
 table {
     width:398px;
