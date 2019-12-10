@@ -70,8 +70,6 @@ function OneThroughThree(playerOne,playerTwo)
 	}
 }
 
-<<<<<<< Updated upstream
-	
 	// On every light bulb, cycle through every colour in the "colours" array
 	function OneThroughSixAll() {
 		var key = Object.keys(colours)
@@ -85,7 +83,7 @@ function OneThroughThree(playerOne,playerTwo)
 					var colour = colours[keys[j]][smallKeys[k]];
 					ChangeColor(apiURL, colour, highbright, delay);
 					delay += 500;
-=======
+
 //player2
 function FourThroughSix(playerOne,playerTwo)
 {
@@ -117,32 +115,7 @@ function celebrate(player){
 					var colour = winner[smallKeys[k]];
 					ChangeColour(apiURL, colour, highbright, delay);
 					delay += 100;
-
-
->>>>>>> Stashed changes
 				}
-			}
-		}
-
-}
-
-// On every light bulb, cycle through every colour in the "colours" array
-function OneThroughSixAll() {
-	var key = Object.keys(colours)
-	var smallKeys = Object.keys(key)
-	for(var i = 0; i < bulbID.length; i++) {
-		var bulb = bulbID[i];
-		var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
-		var delay = 0;
-		for(var j = 0; j < key.length; j++) {
-			for (var k = 0; k< colours[key[j]][smallKeys[k]]; k++) {
-				var colour = colours[key[j]][smallKeys[k]];
-				ChangeColour(apiURL, colour, highbright, delay);
-				delay += 100;
-			}
-		}
-	}
-}
 
 // Function to change the colour of a light bulb given its API URL, the desired colour, the desired brightness, and the delay between switching colours
 function ChangeColour(url, colour, brightness, delay) {
