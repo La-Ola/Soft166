@@ -84,7 +84,29 @@
 		}
 	}
 
-	
+
+	//celebration of winner lights, cycles light, dark, and normal versions of the colour chosen by the winner.
+	function celebration(){
+		var key = Object.keys(colours)
+		var smallKeys = Object.keys(key)
+		for(var i= 0; i < bulbID.length; i++){
+			var bulb = bulbID[i];
+			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
+
+			for(var j = 0; j < colours[key].length; j++) {
+				if (colours[key[j]] == win(player)) {
+					for (var k = 0; k < colours[key[j]][smallKeys[k]]; k++) {
+						var colour = colours[key[j]][smallKeys[k]];
+						ChangeColor(apiURL, colour, highbright, delay);
+						delay += 500;
+
+					}
+				}
+			}
+		}
+
+	}
+
 	// On every light bulb, cycle through every colour in the "colours" array
 	function OneThroughSixAll() {
 		var key = Object.keys(colours)
@@ -93,9 +115,9 @@
 			var bulb = bulbID[i];
 			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
 			var delay = 0;
-			for(var j = 0; j < colours[keys].length; j++) {
-				for (var k = 0; k< colours[keys[j]][smallKeys[k]]; k++) {
-					var colour = colours[keys[j]][smallKeys[k]];
+			for(var j = 0; j < colours[key].length; j++) {
+				for (var k = 0; k< colours[key[j]][smallKeys[k]]; k++) {
+					var colour = colours[key[j]][smallKeys[k]];
 					ChangeColor(apiURL, colour, highbright, delay);
 					delay += 500;
 				}

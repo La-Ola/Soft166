@@ -51,9 +51,15 @@ $(document).ready(function() {
 
    //dispplays winner and disables the board
    function win(player){
-       console.log(player);
+       if(player == "x"){
+           player = playerOneColour;
+       }
+       else{
+           player = playerTwoColour;
+       }
        //disables gameboard
        $("#game-board").addClass("disabled");
+       celebration()
    }
 
 });
