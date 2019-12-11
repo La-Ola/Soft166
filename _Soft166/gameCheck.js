@@ -65,7 +65,13 @@ function checkWin(){
 
        //if a win is detected go to function win with the players turn whom won
         win(turn);
+   }
+   //checks for a draw and calls the appropriate funtion
+   else if ($("#td-1-0").text() != "" && $("#td-1-1").text() != "" && $("#td-1-2") &&
+            $("#td-2-0").text() != "" && $("#td-2-1").text() != "" && $("#td-2-2") &&
+            $("#td-3-0").text() != "" && $("#td-3-1").text() != "" && $("#td-3-2") ){
 
+       draw();
    }
 }
 
@@ -79,8 +85,14 @@ function win(player){
         //player passed player twos colour
         player = playerTwoColour;
     }
-    //board gets disabled
-    $("#game-board").addClass("disabled");
+    //timer set to delete the board
+    setTimeout(function() {
+        document.getElementById("game-board").textContent = "";
+    },1100);
+
     //calls celebrate function and passes the players colour through to the lights2.js file
     celebrate(player);
+
 }
+
+function draw(){}
