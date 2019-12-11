@@ -55,8 +55,7 @@ var colours = { "bl-o":{ "light":lbloodOrange, "normal":bloodOrange, "dark":dblo
 	"li":{ "light":lightLime, "normal":lime, "dark":darkLime }};
 
 //player1
-function OneThroughThree(playerOne,playerTwo)
-{
+function OneThroughThree(playerOne,playerTwo) {
 	delay = 0;
 	for (var lightNum = 0; lightNum < 3; lightNum++)
 	{
@@ -69,20 +68,6 @@ function OneThroughThree(playerOne,playerTwo)
 		ChangeColour(apiURL, colours[playerTwo]["normal"], lowbright, delay);
 	}
 }
-
-	// On every light bulb, cycle through every colour in the "colours" array
-	function OneThroughSixAll() {
-		var key = Object.keys(colours)
-		var smallKeys = Object.keys(key)
-		for(var i = 0; i < bulbID.length; i++) {
-			var bulb = bulbID[i];
-			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
-			var delay = 0;
-			for(var j = 0; j < colours[keys].length; j++) {
-				for (var k = 0; k< colours[keys[j]][smallKeys[k]]; k++) {
-					var colour = colours[keys[j]][smallKeys[k]];
-					ChangeColor(apiURL, colour, highbright, delay);
-					delay += 500;
 
 //player2
 function FourThroughSix(playerOne,playerTwo)
@@ -100,10 +85,29 @@ function FourThroughSix(playerOne,playerTwo)
 	}
 }
 
+// On every light bulb, cycle through every colour in the "colours" array
+function OneThroughSixAll() {
+	var key = Object.keys(colours)
+	var smallKeys = Object.keys(key)
+	for (var i = 0; i < bulbID.length; i++) {
+		var bulb = bulbID[i];
+		var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
+		var delay = 0;
+		for (var j = 0; j < colours[keys].length; j++) {
+			for (var k = 0; k < colours[keys[j]][smallKeys[k]]; k++) {
+				var colour = colours[keys[j]][smallKeys[k]];
+				ChangeColor(apiURL, colour, highbright, delay);
+				delay += 500;
+			}
+		}
+	}
+}
+
+
 // light function to "celebrate upon winning
-function celebrate(player){
-	for (var loop = 0; loop < 10; loop++){
-		for(var i= 0; i < bulbID.length; i++){
+function celebrate(player) {
+	for (var loop = 0; loop < 10; loop++) {
+		for (var i = 0; i < bulbID.length; i++) {
 			var bulb = bulbID[i];
 			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
 
@@ -111,11 +115,14 @@ function celebrate(player){
 
 			var smallKeys = Object.keys(winner);
 
-				for (var k = 0; k < smallKeys.length; k++) {
-					var colour = winner[smallKeys[k]];
-					ChangeColour(apiURL, colour, highbright, delay);
-					delay += 100;
-				}
+			for (var k = 0; k < smallKeys.length; k++) {
+				var colour = winner[smallKeys[k]];
+				ChangeColour(apiURL, colour, highbright, delay);
+				delay += 100;
+			}
+		}
+	}
+}
 
 // Function to change the colour of a light bulb given its API URL, the desired colour, the desired brightness, and the delay between switching colours
 function ChangeColour(url, colour, brightness, delay) {
