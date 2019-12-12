@@ -146,7 +146,6 @@ function draw(playerOne, playerTwo){
 			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
 
 			var winner = colours[playerTwo];
-
 			var smallKeys = Object.keys(winner);
 
 			for (var k = 0; k < smallKeys.length; k++) {

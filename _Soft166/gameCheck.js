@@ -38,6 +38,7 @@ $(document).ready(function() {
     });
 
     $("button.restart").on("click", function() {
+        $("#gameboard").show();
         $("td").text("");
         turn = "x"
 
@@ -81,7 +82,8 @@ function win(player){
     }
     //timer set to delete the board
     setTimeout(function() {
-        document.getElementById("game-board").textContent = "";
+        $("#game-board").hide();
+        $("td").text("");
     },1100);
 
     //calls celebrate function and passes the players colour through to the lights2.js file
