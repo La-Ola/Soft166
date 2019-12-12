@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="./style.css">
     <!-- links to w3school style sheet-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- w3 script import for hiding and showing-->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
     <!-- imports jquery, allows my form to access the javascript in lights2 and gameCheck-->
     <script src="./jquery.js"></script>
     <script src="./Lights2.js"></script>
@@ -15,7 +13,6 @@
 </head>
 
 <body>
-
 
     <!-- desil class used to format desil-->
     <div class="desil">
@@ -39,10 +36,12 @@
         </button>
         <!-- div used to open dropdown using css -- data-colour used as a reference, set as empty-->
         <div class="oneDropdown" data-colour="">
-            <!-- -->
+            <!-- button of player one drop down calling style sheet for formatting-->
             <button class="oneDropbutton">
+                <!-- gamepad image and text-->
                 <i class="fa fa-gamepad" style="padding-right: 5px"></i>Player One
             </button>
+            <!-- content of dropdown formatting, text, and colour dots-->
             <div class="oneDropdown-content">
                 <a data-colour="bl-o" href="#"><span>Blood Orange</span><span class="dot" style="background-color: #ff8c00"></span></a>
                 <a data-colour="cy" href="#"><span>Cyan</span><span class="dot" style="background-color: cyan"></span></a>
@@ -61,9 +60,9 @@
                 <a data-colour="li" href="#">Lime<span class="dot" style="background-color: lime"></span></a>
             </div>
         </div>
-
     </div>
 
+    <!-- for the text of winner/ draw to be displayed-->
     <div class="winner">
         <h1 id="win"></h1>
     </div>

@@ -13,16 +13,14 @@ $(document).ready(function() {
 		$(".twoDropdown").attr("data-colour", twoID);
 		playerTwoColour["normal"];
 	});
-
-
 });
 
 // IP address of the Hue lights bridge
-var bulbIP = "http://192.168.0.50/api/";
+var bulbIPadd = "http://192.168.0.50/api/";
 // API key
 var apiKey = "stlaB2I6VZ8O80Qepc-1xfmLrHgyTFvB9IGupaQz";
 // The IDs of the light bulbs.
-var bulbID = ["1", "2", "3", "4", "5", "6"];
+var bulbIDarray = ["1", "2", "3", "4", "5", "6"];
 
 // Brightness
 var lowbright = 60;
@@ -55,66 +53,60 @@ var colours = { "bl-o":{ "light":lbloodOrange, "normal":bloodOrange, "dark":dblo
 	"li":{ "light":lightLime, "normal":lime, "dark":darkLime }};
 
 //player1
+//runst lights 1, 2, and 3 for player one. pulls in player one an dplayer twos colors
 function OneThroughThree(playerOne,playerTwo) {
 	delay = 0;
+	//first for loop accounts first three lights
+	//gives creates a url with changing bulb id
+	//pulls apiURL, player colour, the brightness and a delay into the colour function
 	for (var lightNum = 0; lightNum < 3; lightNum++)
 	{
-		var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+		var apiURL = bulbIPadd + apiKey + "/lights/" + bulbIDarray[lightNum] + "/";
 		ChangeColour(apiURL, colours[playerOne]["normal"], highbright, delay);
 	}
+	//second for loop accounts for the last three lights
+	//gives creates a url with changing bulb id
+	//pulls apiURL, player colour, the brightness and a delay into the colour function.
+	//brightnes low because it isnt player twos turn
 	for (var lightNum = 3; lightNum < 6; lightNum++)
 	{
-		var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+		var apiURL = bulbIPadd + apiKey + "/lights/" + bulbIDarray[lightNum] + "/";
 		ChangeColour(apiURL, colours[playerTwo]["normal"], lowbright, delay);
 	}
 }
 
 //player2
+// this function does the same as one through three but the other way round for player two
 function FourThroughSix(playerOne,playerTwo)
 {
 	delay = 0;
 	for (var lightNum = 3; lightNum < 6; lightNum++)
 	{
-		var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+		var apiURL = bulbIPadd + apiKey + "/lights/" + bulbIDarray[lightNum] + "/";
 		ChangeColour(apiURL, colours[playerTwo]["normal"], highbright, delay);
 	}
 	for (var lightNum = 0; lightNum < 3; lightNum++)
 	{
-		var apiURL = bulbIP + apiKey + "/lights/" + bulbID[lightNum] + "/";
+		var apiURL = bulbIPadd + apiKey + "/lights/" + bulbIDarray[lightNum] + "/";
 		ChangeColour(apiURL, colours[playerOne]["normal"], lowbright, delay);
-	}
-}
-
-// On every light bulb, cycle through every colour in the "colours" array
-function OneThroughSixAll() {
-	var key = Object.keys(colours)
-	var smallKeys = Object.keys(key)
-	for (var i = 0; i < bulbID.length; i++) {
-		var bulb = bulbID[i];
-		var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
-		var delay = 0;
-		for (var j = 0; j < colours[keys].length; j++) {
-			for (var k = 0; k < colours[keys[j]][smallKeys[k]]; k++) {
-				var colour = colours[keys[j]][smallKeys[k]];
-				ChangeColor(apiURL, colour, highbright, delay);
-				delay += 500;
-			}
-		}
 	}
 }
 
 // light function to "celebrate upon winning
 function celebrate(player) {
 	for (var loop = 0; loop < 20; loop++) {
-		for (var i = 0; i < bulbID.length; i++) {
-			var bulb = bulbID[i];
-			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
-
+		//loops through all 6 lights
+		for (var i = 0; i < bulbIDarray.length; i++) {
+			var bulb = bulbIDarray[i];
+			//adapting apiURL to light up each light
+			var apiURL = bulbIPadd + apiKey + "/lights/" + bulb + "/";
+			//gets colour code for the winners colour
 			var winner = colours[player];
-
+			//gets the keys within the winners key i.e light, normal, dark
 			var smallKeys = Object.keys(winner);
-
+			// loops through the the inner keys
 			for (var k = 0; k < smallKeys.length; k++) {
+				//changes colour between light normal and dark and passes to change colour method
 				var colour = winner[smallKeys[k]];
 				ChangeColour(apiURL, colour, highbright, delay);
 				delay += 50;
@@ -124,14 +116,14 @@ function celebrate(player) {
 }
 
 //light function in the case of a draw.
+// behaves the same way as celebrate function but has both the players colours
 function draw(playerOne, playerTwo){
 	for (var flash = 0; flash < 10; flash ++) {
 		for (var i = 0; i < 3; i++) {
-			var bulb = bulbID[i];
-			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
+			var bulb = bulbIDarray[i];
+			var apiURL = bulbIPadd + apiKey + "/lights/" + bulb + "/";
 
 			var winner = colours[playerOne];
-
 			var smallKeys = Object.keys(winner);
 
 			for (var k = 0; k < smallKeys.length; k++) {
@@ -142,8 +134,8 @@ function draw(playerOne, playerTwo){
 		}
 
 		for (var i = 3; i < 6; i++) {
-			var bulb = bulbID[i];
-			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
+			var bulb = bulbIDarray[i];
+			var apiURL = bulbIPadd + apiKey + "/lights/" + bulb + "/";
 
 			var winner = colours[playerTwo];
 			var smallKeys = Object.keys(winner);
@@ -175,16 +167,4 @@ function ChangeColour(url, colour, brightness, delay) {
 			}
 		});
 	}, delay);
-}
-
-// Function to change the power state of a light bulb given its API URL, and the desired power state
-function Power(url, power) {
-	$.ajax({
-		url: url + "state/",
-		type: "PUT",
-		data: JSON.stringify({"on": power}),
-		success: function (data) {
-			console.log(data);
-		}
-	});
 }

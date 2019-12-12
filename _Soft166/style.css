@@ -208,6 +208,7 @@ body{
 }
 
 
+/*table shell / adjustable*/
 table {
     /*vh = view height*/
     width:70vh;
@@ -216,11 +217,14 @@ table {
     top: 15vh;
     left: calc(50% - 35vh);
 }
-
+/*table row shell / adjustable*/
 tr{
     width: 100%;
     height: calc(70vh / 3);
 }
+/*table cell shells / adjustable*/
+/*adds a pointer so it is easy to see its clickable*/
+/*font adjustable to page size*/
 td{
     width: calc(100% / 3);
     height: calc(70vh / 3);
@@ -234,11 +238,14 @@ td{
     cursor:pointer;
     text-align:center;
 }
+/*hover function, easier to view whats being selected*/
 td:hover {
     background:rgba(220,220,220,0.5)
 }
 
-.restart{font-size: 16px;
+/*restart button formatting*/
+.restart{
+    font-size: 16px;
     border: none;
     outline: none;
     color: white;
