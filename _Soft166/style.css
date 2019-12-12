@@ -30,7 +30,6 @@ body{
 }
 .desil2{
     transform: rotate(180deg);
-    background-image: url("corner desil.png");
     position: absolute;
     top: 55px;
     left: 5px;

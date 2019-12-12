@@ -34,21 +34,21 @@ var magenta = [0.35, 0.2];
 var darkMagenta = [0.35, 0.15];
 
 // Cyan colours
-var lightCyan = [0.2, 0.275];
-var cyan = [0.1, 0.25];
-var darkCyan = [0.125, 0.18];
+var lightCyan = [0.27, 0.32];
+var cyan = [0.2, 0.32];
+var darkCyan = [0.1, 0.32];
 
 // Orange colours
-var lbloodOrange = [0.6, 0.48];
-var bloodOrange = [0.6, 0.43];
-var dbloodOrange = [0.6, 0.38];
+var lbloodOrange = [0.5, 0.4];
+var bloodOrange = [0.6, 0.4];
+var dbloodOrange = [0.7, 0.4];
 
 // Lime colours
-var lightLime = [0.345, 0.55];
-var lime = [0.345, 0.65];
+var lightLime = [0.345, 0.4];
+var lime = [0.345, 0.5];
 var darkLime = [0.34, 0.7];
 
-// colours object for conecting the colourID with colour values using data atributes in the html and comparing them to the variables in js.
+// colours object for connecting the colourID with colour values using data atributes in the html and comparing them to the variables in js.
 var colours = { "bl-o":{ "light":lbloodOrange, "normal":bloodOrange, "dark":dbloodOrange },
 	"cy":{ "light":lightCyan, "normal":cyan, "dark":darkCyan },
 	"mag":{ "light":lightMagenta, "normal":magenta, "dark":darkMagenta },
@@ -103,10 +103,9 @@ function OneThroughSixAll() {
 	}
 }
 
-
 // light function to "celebrate upon winning
 function celebrate(player) {
-	for (var loop = 0; loop < 10; loop++) {
+	for (var loop = 0; loop < 20; loop++) {
 		for (var i = 0; i < bulbID.length; i++) {
 			var bulb = bulbID[i];
 			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
@@ -118,7 +117,42 @@ function celebrate(player) {
 			for (var k = 0; k < smallKeys.length; k++) {
 				var colour = winner[smallKeys[k]];
 				ChangeColour(apiURL, colour, highbright, delay);
-				delay += 100;
+				delay += 50;
+			}
+		}
+	}
+}
+
+//light function in the case of a draw.
+function draw(playerOne, playerTwo){
+	for (var flash = 0; flash < 10; flash ++) {
+		for (var i = 0; i < 3; i++) {
+			var bulb = bulbID[i];
+			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
+
+			var winner = colours[playerOne];
+
+			var smallKeys = Object.keys(winner);
+
+			for (var k = 0; k < smallKeys.length; k++) {
+				var colour = winner[smallKeys[k]];
+				ChangeColour(apiURL, colour, highbright, delay);
+				delay += 50;
+			}
+		}
+
+		for (var i = 3; i < 6; i++) {
+			var bulb = bulbID[i];
+			var apiURL = bulbIP + apiKey + "/lights/" + bulb + "/";
+
+			var winner = colours[playerTwo];
+
+			var smallKeys = Object.keys(winner);
+
+			for (var k = 0; k < smallKeys.length; k++) {
+				var colour = winner[smallKeys[k]];
+				ChangeColour(apiURL, colour, highbright, delay);
+				delay += 50;
 			}
 		}
 	}
@@ -141,10 +175,10 @@ function ChangeColour(url, colour, brightness, delay) {
 // Function to change the power state of a light bulb given its API URL, and the desired power state
 function Power(url, power) {
 	$.ajax({
-		url:url + "state/",
-		type:"PUT",
-		data:JSON.stringify({ "on":power }) ,
-		success:function(data){
+		url: url + "state/",
+		type: "PUT",
+		data: JSON.stringify({"on": power}),
+		success: function (data) {
 			console.log(data);
 		}
 	});

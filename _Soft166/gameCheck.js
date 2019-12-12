@@ -27,10 +27,10 @@ $(document).ready(function() {
                     FourThroughSix(playerOneColour, playerTwoColour);
 
                 }
-            else {
+                else {
                     turn = "x";
                     //light control for player one
-                    OneThroughThree()
+                    OneThroughThree(playerOneColour, playerTwoColour)
                 }
 
             }
@@ -38,15 +38,9 @@ $(document).ready(function() {
     });
 
     $("button.restart").on("click", function() {
-        document.getElementById("td-1-0").textContent = "";
-        document.getElementById("td-1-1").textContent = "";
-        document.getElementById("td-1-2").textContent = "";
-        document.getElementById("td-2-0").textContent = "";
-        document.getElementById("td-2-1").textContent = "";
-        document.getElementById("td-2-2").textContent = "";
-        document.getElementById("td-3-0").textContent = "";
-        document.getElementById("td-3-1").textContent = "";
-        document.getElementById("td-3-2").textContent = "";
+        $("td").text("");
+        turn = "x"
+
     });
 });
 
@@ -54,7 +48,7 @@ $(document).ready(function() {
 //function checks every varitation for a win
 function checkWin(){
 
-   if($("#td-1-0").text() == $("#td-1-1").text() && $("#td-1-0").text() == $("#td-1-2").text() && $("#td-1-0").text() != ""
+    if($("#td-1-0").text() == $("#td-1-1").text() && $("#td-1-0").text() == $("#td-1-2").text() && $("#td-1-0").text() != ""
         || $("#td-2-0").text() == $("#td-2-1").text() && $("#td-2-0").text() == $("#td-2-2").text() && $("#td-2-0").text() != ""
         || $("#td-3-0").text() == $("#td-3-1").text() && $("#td-3-0").text() == $("#td-3-2").text() && $("#td-3-0").text() != ""
         || $("#td-1-0").text() == $("#td-2-0").text() && $("#td-1-0").text() == $("#td-3-0").text() && $("#td-1-0").text() != ""
@@ -63,16 +57,16 @@ function checkWin(){
         || $("#td-1-0").text() == $("#td-2-1").text() && $("#td-1-0").text() == $("#td-3-2").text() && $("#td-1-0").text() != ""
         || $("#td-1-2").text() == $("#td-2-1").text() && $("#td-1-2").text() == $("#td-3-0").text() && $("#td-1-2").text() != "") {
 
-       //if a win is detected go to function win with the players turn whom won
+        //if a win is detected go to function win with the players turn whom won
         win(turn);
-   }
-   //checks for a draw and calls the appropriate funtion
-   else if ($("#td-1-0").text() != "" && $("#td-1-1").text() != "" && $("#td-1-2") &&
-            $("#td-2-0").text() != "" && $("#td-2-1").text() != "" && $("#td-2-2") &&
-            $("#td-3-0").text() != "" && $("#td-3-1").text() != "" && $("#td-3-2") ){
+    }
+    //checks for a draw and calls the appropriate funtion
+    else if ($("#td-1-0").text() != "" && $("#td-1-1").text() != "" && $("#td-1-2") &&
+        $("#td-2-0").text() != "" && $("#td-2-1").text() != "" && $("#td-2-2") &&
+        $("#td-3-0").text() != "" && $("#td-3-1").text() != "" && $("#td-3-2") ){
 
-       draw();
-   }
+        draw(playerOneColour, playerTwoColour);
+    }
 }
 
 //win grabs the player who won
@@ -94,5 +88,3 @@ function win(player){
     celebrate(player);
 
 }
-
-function draw(){}
