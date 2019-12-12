@@ -155,6 +155,12 @@ function draw(playerOne, playerTwo){
 			}
 		}
 	}
+	//hides game board
+	$("#game-board").hide();
+	//clears the board
+	$("td").text("");
+	//displayes the board
+	$("#win").show().text("DRAW");
 }
 
 // Function to change the colour of a light bulb given its API URL, the desired colour, the desired brightness, and the delay between switching colours

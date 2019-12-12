@@ -4,6 +4,7 @@ var playerTwoColour = "";
 
 $(document).ready(function() {
 
+    $("#win").hide();
     //event listener for each table cell to switch the player, runs functions from lights2.js to deal with light changes
     $("td").on("click", function() {
         //each colour chosen by the user is imported here and passed through to the lights2.js file
@@ -37,11 +38,13 @@ $(document).ready(function() {
         }
     });
 
+    //restart button function (event listener)
     $("button.restart").on("click", function() {
-        $("#gameboard").show();
+        //hides the winner and shows the game board, empty ready to play again
+        $("#win").hide()
+        $("#game-board").show();
         $("td").text("");
         turn = "x"
-
     });
 });
 
@@ -59,7 +62,7 @@ function checkWin(){
         || $("#td-1-2").text() == $("#td-2-1").text() && $("#td-1-2").text() == $("#td-3-0").text() && $("#td-1-2").text() != "") {
 
         //if a win is detected go to function win with the players turn whom won
-        win(turn);
+        win();
     }
     //checks for a draw and calls the appropriate funtion
     else if ($("#td-1-0").text() != "" && $("#td-1-1").text() != "" && $("#td-1-2") &&
@@ -71,8 +74,15 @@ function checkWin(){
 }
 
 //win grabs the player who won
-function win(player){
-    if (player == "x"){
+function win(){
+    //upon win game-board gets hidden
+    $("#game-board").hide();
+    //game board gets cleared
+    $("td").text("");
+    // displays winner
+    $("#win").show().text(turn.toUpperCase() + " WINS");
+
+    if (turn == "x"){
         //player gets passed player ones colour if they won
         player = playerOneColour;
     }
@@ -80,12 +90,6 @@ function win(player){
         //player passed player twos colour
         player = playerTwoColour;
     }
-    //timer set to delete the board
-    setTimeout(function() {
-        $("#game-board").hide();
-        $("td").text("");
-    },1100);
-
     //calls celebrate function and passes the players colour through to the lights2.js file
     celebrate(player);
 
