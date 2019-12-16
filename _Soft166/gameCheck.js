@@ -4,6 +4,12 @@ var playerTwoColour = "";
 
 $(document).ready(function() {
 
+    playerOneColour = $(".oneDropdown").attr("data-colour");
+    playerTwoColour = $(".twoDropdown").attr("data-colour");
+    if (playerOneColour != "" && playerTwoColour != "") {
+        window.location.href = "./website1.html";
+    }
+    // keeps text of winner is hidden until called
     $("#win").hide();
     //event listener for each table cell to switch the player, runs functions from lights2.js to deal with light changes
     $("td").on("click", function() {
@@ -11,30 +17,23 @@ $(document).ready(function() {
         playerOneColour = $(".oneDropdown").attr("data-colour");
         playerTwoColour = $(".twoDropdown").attr("data-colour");
 
-        //shows an alert if the players colours are the same or not selected
-        if (playerOneColour == playerTwoColour) {
-            alert("choose a different colour for each player");
-        }
         //lets the players play once two different colours are selected
-        else if (playerOneColour != "" && playerTwoColour != "") {
-            //re-enables the board to be selected once two different colours are chosen
-            if ($(this).text() == "" && !$("#game-board").hasClass("disabled")) {
-                $(this).text(turn);
-                //goes to check win function after every turn
-                checkWin()
-                if (turn == "x") {
-                    turn = "o";
-                    //light control for player two
-                    FourThroughSix(playerOneColour, playerTwoColour);
-
-                }
-                else {
-                    turn = "x";
-                    //light control for player one
-                    OneThroughThree(playerOneColour, playerTwoColour)
-                }
+        if (playerOneColour != "" && playerTwoColour != "") {
+            $(this).text(turn);
+            //goes to check win function after every turn
+            checkWin()
+            if (turn == "x") {
+                turn = "o";
+                //light control for player two
+                FourThroughSix(playerOneColour, playerTwoColour);
 
             }
+            else {
+                turn = "x";
+                //light control for player one
+                OneThroughThree(playerOneColour, playerTwoColour)
+            }
+
         }
     });
 
