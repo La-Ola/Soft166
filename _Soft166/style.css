@@ -26,7 +26,7 @@ body{
 /*styling for the text displayed upon win/draw */
 /*makes text central*/
 /*font size adapts to page size using view width. text fits colour theme*/
-.winner{
+.centerText{
     position: center;
     text-align: center;
     font-size: 7vw;

@@ -18,7 +18,7 @@ $(document).ready(function() {
         //each colour chosen by the user is imported here and passed through to the lights2.js file
         playerOneColour = $(".oneDropdown").attr("data-colour");
         playerTwoColour = $(".twoDropdown").attr("data-colour");
-        
+
         $(this).text(turn);
         //goes to check win function after every turn
         checkWin()
