@@ -3,8 +3,10 @@ Soft166
 ---  
 ### YouTube clip:
 
+
 ### Application fact sheet:
 [Applications page.pdf](https://github.com/La-Ola/University/files/3979204/Applications.page.pdf)
+
 
 ### ScreenShots:
 background of page is fluid
