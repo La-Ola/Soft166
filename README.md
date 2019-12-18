@@ -4,7 +4,8 @@ Soft166
 ### YouTube clip:
 
 
-### ScreenShots
+### ScreenShots:
+background of page is fluid
 <img width="959" alt="index page" src="https://user-images.githubusercontent.com/44809906/71091171-8a78aa80-219c-11ea-9f0c-f4b5e893fd5b.png">
 <img width="959" alt="lights key page" src="https://user-images.githubusercontent.com/44809906/71091905-fb6c9200-219d-11ea-81af-5934eae4d85f.png">
 <img width="959" alt="abouts page" src="https://user-images.githubusercontent.com/44809906/71091910-ff001900-219d-11ea-9b74-3988b3a0ba80.png">
