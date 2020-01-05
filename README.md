@@ -2,7 +2,7 @@
 Soft166
 ---  
 ### YouTube clip:
-https://youtu.be/5tmwQnS1w-M
+[YouTube clip showing my web application](https://youtu.be/5tmwQnS1w-M)
 
 ### Application fact sheet:
 [Applications page.pdf](https://github.com/La-Ola/University/files/3979204/Applications.page.pdf)
